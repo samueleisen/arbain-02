@@ -6,15 +6,21 @@
 |---|---|---|
 | [`konsep.md`](./konsep.md) | ✅ Selesai | Brief awal — deskripsi kebutuhan mitra |
 | [`backend.concept.conf`](./backend.concept.conf) | ✅ Locked | Seluruh keputusan & rancangan backend (KONSEP) |
-| [`index.html`](./index.html) | 🔄 Draft | Raw UI prototype — bisa dibuka langsung di browser |
-| [`style.css`](./style.css) | 🔄 Draft | Design system CSS (light default & dark theme) |
-| [`app.js`](./app.js) | 🔄 Draft | Logic SPA prototype (mock data) |
+| [`index.html`](./index.html) | ✅ Selesai | Root entry point — auto-redirect auth ke dashboard/login |
+| [`login.html`](./login.html) | ✅ Selesai | Halaman Masuk (Login) mandiri |
+| [`dashboard.html`](./dashboard.html) | ✅ Selesai | Halaman Dashboard operasional & ringkasan KPI |
+| [`customers.html`](./customers.html) | ✅ Selesai | Halaman Direktori Pelanggan & modal tambah pelanggan |
+| [`sales.html`](./sales.html) | ✅ Selesai | Halaman Aktivitas Sales (kunjungan, deal, follow-up) |
+| [`stock.html`](./stock.html) | ✅ Selesai | Halaman Inventaris Stok, alert level, & mutasi |
+| [`laporan.html`](./laporan.html) | ✅ Selesai | Pusat Laporan & Ekspor Data (CSV & Cetak PDF) |
+| [`style.css`](./style.css) | ✅ Selesai | Design system CSS (dark & light utility, responsive, print) |
+| [`app.js`](./app.js) | ✅ Selesai | Engine MPA (shared localStorage, theme, auth, CSV exports) |
 
 ## Status Implementasi
 
 ```
 Backend    ░░░░░░░░░░  0%   — Konsep terkunci, implementasi belum dimulai
-Frontend   ███░░░░░░░  30%  — Raw UI prototype selesai, belum Vite/React
+Frontend   ██████░░░░  60%  — Multi-Page Application (MPA) selesai, URLs terpisah & siap ekspor
 DevOps     ░░░░░░░░░░  0%   — GCP belum di-provision
 ```
 

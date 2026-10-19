@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#F8FAFC" />
+  <meta name="description" content="Aktivitas Sales CRM Mitra — Kunjungan, Follow-up, dan Deals" />
+  <title>Aktivitas Sales — CRM Mitra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="sales">
+
+  <!-- ═══════════ APP SHELL ═══════════ -->
+  <div id="app-shell" class="app-shell">
+
+    <!-- Sidebar (desktop) -->
+    <aside id="sidebar" class="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-icon sm">
+          <svg width="20" height="20" viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="8" fill="#3B82F6"/><path d="M7 14C7 10.134 10.134 7 14 7V7C17.866 7 21 10.134 21 14V14C21 17.866 17.866 21 14 21V21" stroke="white" stroke-width="2.5" stroke-linecap="round"/><circle cx="14" cy="14" r="3" fill="white"/></svg>
+        </div>
+        <span class="brand-name">CRM Mitra</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="nav-item" id="nav-dashboard">
+          <svg width="18" height="18" fill="none" viewBox="0 0 18 18"><rect x="2" y="2" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="10" y="2" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="2" y="10" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="10" y="10" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.6"/></svg>
+          <span>Dashboard</span>
+        </a>
+        <a href="customers.html" class="nav-item" id="nav-customers">
+          <svg width="18" height="18" fill="none" viewBox="0 0 18 18"><circle cx="9" cy="6" r="3" stroke="currentColor" stroke-width="1.6"/><path d="M3 15c0-3.314 2.686-6 6-6s6 2.686 6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <span>Pelanggan</span>
+          <span class="nav-badge" id="badge-customers">128</span>
+        </a>
+        <a href="sales.html" class="nav-item active" id="nav-sales">
+          <svg width="18" height="18" fill="none" viewBox="0 0 18 18"><path d="M9 2v14M4 6l5-4 5 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><rect x="3" y="9" width="12" height="7" rx="1" stroke="currentColor" stroke-width="1.6"/></svg>
+          <span>Aktivitas Sales</span>
+          <span class="nav-badge warn" id="badge-sales">5</span>
+        </a>
+        <a href="stock.html" class="nav-item" id="nav-stock">
+          <svg width="18" height="18" fill="none" viewBox="0 0 18 18"><path d="M3 5l6-3 6 3v8l-6 3-6-3V5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 2v14M3 5l6 3 6-3" stroke="currentColor" stroke-width="1.6"/></svg>
+          <span>Stok</span>
+          <span class="nav-badge danger" id="badge-stock">2</span>
+        </a>
+        <div class="nav-divider"></div>
+        <a href="laporan.html" class="nav-item" id="nav-laporan">
+          <svg width="18" height="18" fill="none" viewBox="0 0 18 18"><rect x="3" y="2" width="12" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M6 6h6M6 9h6M6 12h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <span>Laporan</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-user-wrap">
+        <div id="user-expand-menu" class="user-expand-menu" role="menu" aria-label="Menu Pengguna">
+          <button class="user-menu-item" type="button" role="menuitem" onclick="openSettings()">
+            <svg width="16" height="16" fill="none" viewBox="0 0 16 16">
+              <path d="M6.5 1.5h3l.4 1.8a5 5 0 011.2.7l1.7-.8 2.1 2.1-.8 1.7c.3.4.5.8.7 1.2l1.8.4v3l-1.8.4a5 5 0 01-.7 1.2l.8 1.7-2.1 2.1-1.7-.8a5 5 0 01-1.2.7l-.4 1.8h-3l-.4-1.8a5 5 0 01-1.2-.7l-1.7.8-2.1-2.1.8-1.7a5 5 0 01-.7-1.2l-1.8-.4v-3l1.8-.4a5 5 0 01.7-1.2l-.8-1.7 2.1-2.1 1.7.8c.4-.3.8-.5 1.2-.7l.4-1.8z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="8" cy="8" r="2.3" stroke="currentColor" stroke-width="1.4"/>
+            </svg>
+            <span>Pengaturan</span>
+          </button>
+          <button class="user-menu-item danger" type="button" role="menuitem" onclick="doLogout()">
+            <svg width="16" height="16" fill="none" viewBox="0 0 16 16">
+              <path d="M6 2H3a1 1 0 00-1 1v10a1 1 0 001 1h3M11 11l3-3-3-3M14 8H6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Keluar</span>
+          </button>
+        </div>
+        <div class="sidebar-user">
+          <div class="avatar">AS</div>
+          <div class="user-info">
+            <span class="user-name">Agus Setiawan</span>
+            <span class="user-role">Admin</span>
+          </div>
+          <button id="user-menu-toggle" class="icon-btn user-expand-btn" type="button" onclick="toggleUserMenu(event)" title="Opsi Akun" aria-label="Opsi Akun" aria-expanded="false" aria-haspopup="true">
+            <svg class="expand-icon" width="16" height="16" fill="none" viewBox="0 0 16 16">
+              <path d="M4 10l4-4 4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main content wrap -->
+    <div class="main-wrap">
+
+      <!-- Top bar -->
+      <header class="topbar">
+        <button class="icon-btn" onclick="toggleSidebar()" id="menu-toggle" aria-label="Toggle Menu">
+          <svg width="20" height="20" fill="none" viewBox="0 0 20 20"><path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+        <span class="topbar-title">Aktivitas Sales</span>
+        <div class="topbar-actions">
+          <button class="icon-btn notif-btn" onclick="showToast('5 aktivitas pending menunggu follow up','info')" aria-label="Notifikasi">
+            <svg width="18" height="18" fill="none" viewBox="0 0 18 18"><path d="M9 2a5 5 0 00-5 5v3l-1.5 2h13L14 10V7a5 5 0 00-5-5z" stroke="currentColor" stroke-width="1.6"/><path d="M7 14a2 2 0 004 0" stroke="currentColor" stroke-width="1.6"/></svg>
+            <span class="notif-dot"></span>
+          </button>
+          <div class="avatar sm" onclick="openSettings()" style="cursor:pointer;" title="Klik untuk Pengaturan">AS</div>
+        </div>
+      </header>
+
+      <!-- Content -->
+      <main class="content">
+        <section id="page-sales" class="view active">
+          <div class="page-header">
+            <div>
+              <h2 class="page-title">Aktivitas Sales</h2>
+              <p class="page-sub">Pantau kunjungan, follow-up, panggilan telepon, dan negosiasi</p>
+            </div>
+            <div class="btn-group">
+              <button class="btn-secondary" onclick="exportSalesCSV()">
+                <svg width="14" height="14" fill="none" viewBox="0 0 14 14"><path d="M7 1v8M4 6l3 3 3-3M2 11h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Ekspor CSV
+              </button>
+              <button class="btn-primary" onclick="openModal('modal-add-activity')">
+                <svg width="14" height="14" fill="none" viewBox="0 0 14 14"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                + Log Aktivitas
+              </button>
+            </div>
+          </div>
+
+          <!-- Tabs -->
+          <div class="tab-row">
+            <button class="tab active" onclick="switchTab(this,'tab-today')">Hari Ini</button>
+            <button class="tab" onclick="switchTab(this,'tab-upcoming')">Mendatang</button>
+            <button class="tab" onclick="switchTab(this,'tab-history')">Riwayat Lengkap</button>
+          </div>
+
+          <div id="tab-today" class="tab-content active">
+            <div class="activity-cards" id="activity-cards">
+              <!-- Dynamically populated by JS from shared storage -->
+            </div>
+          </div>
+
+          <div id="tab-upcoming" class="tab-content">
+            <div class="empty-state">
+              <svg width="40" height="40" fill="none" viewBox="0 0 40 40"><circle cx="20" cy="20" r="16" stroke="var(--text-muted)" stroke-width="2"/><path d="M20 12v8l5 5" stroke="var(--text-muted)" stroke-width="2" stroke-linecap="round"/></svg>
+              <p>Tidak ada aktivitas mendatang yang terjadwal</p>
+              <button class="btn-secondary sm" style="margin-top:10px;" onclick="openModal('modal-add-activity')">Jadwalkan Sekarang</button>
+            </div>
+          </div>
+
+          <div id="tab-history" class="tab-content">
+            <div class="empty-state">
+              <svg width="40" height="40" fill="none" viewBox="0 0 40 40"><rect x="8" y="6" width="24" height="28" rx="3" stroke="var(--text-muted)" stroke-width="2"/><path d="M14 14h12M14 20h12M14 26h7" stroke="var(--text-muted)" stroke-width="2" stroke-linecap="round"/></svg>
+              <p>Riwayat seluruh aktivitas sales tersimpan lengkap di database</p>
+              <button class="btn-secondary sm" style="margin-top:10px;" onclick="exportSalesCSV()">Unduh Arsip CSV</button>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Bottom Nav (Mobile) -->
+      <nav class="bottom-nav">
+        <a href="dashboard.html" class="bn-item" id="bn-dashboard">
+          <svg width="20" height="20" fill="none" viewBox="0 0 18 18"><rect x="2" y="2" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="10" y="2" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="2" y="10" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="10" y="10" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.6"/></svg>
+          <span>Dasbor</span>
+        </a>
+        <a href="customers.html" class="bn-item" id="bn-customers">
+          <svg width="20" height="20" fill="none" viewBox="0 0 18 18"><circle cx="9" cy="6" r="3" stroke="currentColor" stroke-width="1.6"/><path d="M3 15c0-3.314 2.686-6 6-6s6 2.686 6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <span>Pelanggan</span>
+        </a>
+        <a href="sales.html" class="bn-item active" id="bn-sales">
+          <svg width="20" height="20" fill="none" viewBox="0 0 18 18"><path d="M9 2v14M4 6l5-4 5 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><rect x="3" y="9" width="12" height="7" rx="1" stroke="currentColor" stroke-width="1.6"/></svg>
+          <span>Sales</span>
+        </a>
+        <a href="stock.html" class="bn-item" id="bn-stock">
+          <svg width="20" height="20" fill="none" viewBox="0 0 18 18"><path d="M3 5l6-3 6 3v8l-6 3-6-3V5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 2v14M3 5l6 3 6-3" stroke="currentColor" stroke-width="1.6"/></svg>
+          <span>Stok</span>
+        </a>
+      </nav>
+
+    </div><!-- /main-wrap -->
+
+    <div id="sidebar-overlay" class="sidebar-overlay" onclick="closeSidebar()"></div>
+  </div><!-- /app-shell -->
+
+  <!-- ═══════════ MODAL LOG AKTIVITAS ═══════════ -->
+  <div id="modal-add-activity" class="modal-backdrop" onclick="closeModalBackdrop(event,'modal-add-activity')">
+    <div class="modal">
+      <div class="modal-header">
+        <span class="modal-title">Catat Aktivitas Baru</span>
+        <button class="icon-btn" onclick="closeModal('modal-add-activity')" aria-label="Tutup modal">
+          <svg width="16" height="16" fill="none" viewBox="0 0 16 16"><path d="M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+      <form onsubmit="submitAddActivity(event)">
+        <div class="modal-body">
+          <div class="field-group">
+            <label class="field-label" for="act-customer">Nama Pelanggan *</label>
+            <input id="act-customer" name="customer" class="field-input" type="text" placeholder="Contoh: PT Maju Bersama" list="customer-datalist" required />
+            <datalist id="customer-datalist">
+              <option value="PT Maju Bersama"></option>
+              <option value="CV Karya Mandiri"></option>
+              <option value="Toko Berkah Jaya"></option>
+              <option value="UD Sinar Terang"></option>
+              <option value="PT Nusa Indah"></option>
+            </datalist>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Tipe Aktivitas *</label>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="act-type" value="visit" checked/> 🏢 Kunjungan</label>
+              <label class="radio-opt"><input type="radio" name="act-type" value="call"/> 📞 Telepon</label>
+              <label class="radio-opt"><input type="radio" name="act-type" value="follow_up"/> 🔄 Follow-up</label>
+              <label class="radio-opt"><input type="radio" name="act-type" value="deal"/> 🤝 Deal</label>
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field-group">
+              <label class="field-label" for="act-sales">Sales PIC</label>
+              <select id="act-sales" name="sales" class="field-input">
+                <option value="Rina">Rina</option>
+                <option value="Budi">Budi</option>
+                <option value="Agus">Agus</option>
+              </select>
+            </div>
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="act-note">Catatan / Hasil Kunjungan</label>
+            <textarea id="act-note" name="note" class="field-input" rows="3" placeholder="Detail pembahasan, penawaran harga, atau tanggapan pelanggan…"></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-ghost" onclick="closeModal('modal-add-activity')">Batal</button>
+          <button type="submit" class="btn-primary">Simpan Aktivitas</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Settings Modal -->
+  <div id="modal-settings" class="modal-backdrop" onclick="closeModalBackdrop(event,'modal-settings')">
+    <div class="modal">
+      <div class="modal-header">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <svg width="18" height="18" fill="none" viewBox="0 0 16 16"><path d="M6.5 1.5h3l.4 1.8a5 5 0 011.2.7l1.7-.8 2.1 2.1-.8 1.7c.3.4.5.8.7 1.2l1.8.4v3l-1.8.4a5 5 0 01-.7 1.2l.8 1.7-2.1 2.1-1.7-.8a5 5 0 01-1.2.7l-.4 1.8h-3l-.4-1.8a5 5 0 01-1.2-.7l-1.7.8-2.1-2.1.8-1.7a5 5 0 01-.7-1.2l-1.8-.4v-3l1.8-.4a5 5 0 01.7-1.2l-.8-1.7 2.1-2.1 1.7.8c.4-.3.8-.5 1.2-.7l.4-1.8z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="8" cy="8" r="2.3" stroke="currentColor" stroke-width="1.4"/></svg>
+          <span class="modal-title">Pengaturan</span>
+        </div>
+        <button class="icon-btn" onclick="closeModal('modal-settings')" aria-label="Tutup modal">
+          <svg width="16" height="16" fill="none" viewBox="0 0 16 16"><path d="M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="settings-section">
+          <div class="settings-section-header">
+            <span class="settings-section-title">Tampilan & Tema</span>
+            <span class="settings-section-badge">Aktif</span>
+          </div>
+          <div class="settings-row">
+            <div class="settings-row-info">
+              <span class="settings-row-label">Mode Tema</span>
+              <span class="settings-row-desc">Pilih antara tema gelap (Dark) atau terang (Light)</span>
+            </div>
+            <div class="theme-toggle-group">
+              <button type="button" class="theme-toggle-btn" id="theme-btn-dark" onclick="setTheme('dark')">
+                <svg width="15" height="15" fill="none" viewBox="0 0 16 16"><path d="M14 9.5A6.5 6.5 0 016.5 2 6.5 6.5 0 1014 9.5z" stroke="currentColor" stroke-width="1.6"/></svg>
+                <span>Dark</span>
+              </button>
+              <button type="button" class="theme-toggle-btn active" id="theme-btn-light" onclick="setTheme('light')">
+                <svg width="15" height="15" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.6"/><path d="M8 1.5v1.5M8 13v1.5M1.5 8H3M13 8h1.5" stroke="currentColor" stroke-width="1.6"/></svg>
+                <span>Light</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-ghost" onclick="closeModal('modal-settings')">Tutup</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast-container" class="toast-container"></div>
+  <script src="app.js"></script>
+</body>
+</html>

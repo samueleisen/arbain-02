@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#F8FAFC" />
+  <meta name="description" content="Masuk ke CRM Mitra — Pengelolaan Pelanggan, Sales, dan Stok" />
+  <title>Masuk — CRM Mitra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="login">
+
+  <!-- ═══════════ LOGIN PAGE ═══════════ -->
+  <div id="page-login" class="page active">
+    <div class="login-bg">
+      <div class="login-glow"></div>
+    </div>
+    <div class="login-card">
+      <div class="login-brand">
+        <div class="brand-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="8" fill="#3B82F6"/><path d="M7 14C7 10.134 10.134 7 14 7V7C17.866 7 21 10.134 21 14V14C21 17.866 17.866 21 14 21V21" stroke="white" stroke-width="2.5" stroke-linecap="round"/><circle cx="14" cy="14" r="3" fill="white"/></svg>
+        </div>
+        <span class="brand-name">CRM Mitra</span>
+      </div>
+      <h1 class="login-title">Selamat datang kembali</h1>
+      <p class="login-sub">Masuk ke sistem manajemen mitra Anda</p>
+
+      <form id="login-form" onsubmit="doLogin(event)">
+        <div class="field-group">
+          <label class="field-label" for="email">Email</label>
+          <input id="email" class="field-input" type="email" placeholder="nama@perusahaan.com" value="admin@mitra.co.id" required />
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="password">Password</label>
+          <input id="password" class="field-input" type="password" placeholder="••••••••" value="password123" required />
+          <span class="field-hint">Demo: password123</span>
+        </div>
+        <label class="checkbox-row">
+          <input type="checkbox" checked /> <span>Ingat sesi saya</span>
+        </label>
+        <button id="btn-login" class="btn-primary btn-full" type="submit">
+          <span class="btn-label">Masuk</span>
+          <svg width="16" height="16" fill="none" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div id="toast-container" class="toast-container"></div>
+  <script src="app.js"></script>
+</body>
+</html>
